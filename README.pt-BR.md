@@ -26,7 +26,10 @@ logada no seu computador, então não tem conta, chave nem cobrança própria.
 - **Controla o desktop:** abre qualquer tela da central, a busca, a visão geral, a área de transferência, os emojis e o dock. Liga e desliga o foco, controla a música, abre apps, troca de área de trabalho e move janelas.
 - **Pergunta antes:** uma lista curta de comandos roda sozinha. O resto espera o seu OK, mostrando o comando exato.
 - **Humores:** ele ouve, pensa, trabalha, espera por você, comemora, mostra erros e dorme, na barra e na ilha.
+- **Modelo, esforço e histórico:** escolha o modelo (Opus 5.5, Sonnet 5.5, …) e o esforço pela barra, e reabra ou continue conversas antigas. O histórico fica só no seu computador.
 - **Você escolhe a IA:** Claude Code, Cursor ou Codex, na tela Assistente do Atoll (`Super+Alt+G`).
+
+![Conversas antigas](docs/screenshots/history.webp)
 
 ## Humores
 

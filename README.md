@@ -26,7 +26,10 @@ computer, so there is no account, key or bill of its own.
 - **Controls the desktop:** opens any control-center screen, the launcher, overview, clipboard, emoji picker and dock. Starts and stops focus mode, controls the music, launches apps, switches workspaces and moves windows.
 - **Asks first:** a short list of commands runs on its own. Anything else waits for your OK, with the exact command shown.
 - **Moods:** it listens, thinks, works, waits for you, celebrates, shows errors and sleeps, in the bar and in the island.
+- **Model, effort and history:** pick the model (Opus 5.5, Sonnet 5.5, …) and the effort from the bar, and reopen or continue past conversations. The history stays on your computer only.
 - **Your choice of AI:** Claude Code, Cursor or Codex, picked in Atoll's Assistant screen (`Super+Alt+G`).
+
+![Past conversations](docs/screenshots/history.webp)
 
 ## Moods
 
