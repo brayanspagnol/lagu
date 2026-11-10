@@ -1,63 +1,98 @@
-# Lagu
+<div align="center">
+  <img src="docs/logo.svg" width="96" alt="Lagu logo">
+  <h1>Lagu</h1>
+  <p><strong>The assistant that lives in the island of <a href="https://github.com/brayanspagnol/atoll">Atoll</a>, with no API key of its own.</strong></p>
+  <p>
+    <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/github/license/brayanspagnol/lagu"></a>
+    <img alt="Platform: Linux" src="https://img.shields.io/badge/platform-Linux-blue">
+    <img alt="Language: QML" src="https://img.shields.io/badge/language-QML-41CD52">
+    <img alt="Works with: Claude Code, Cursor, Codex" src="https://img.shields.io/badge/works%20with-Claude%20Code%20%7C%20Cursor%20%7C%20Codex-8CC8F5">
+  </p>
+  <p><a href="README.pt-BR.md">Leia em português</a></p>
+</div>
 
-The assistant inside [Atoll](https://github.com/brayanspagnol/atoll). Lagu is a blue drop with a palm sprout that lives in the island. Ask it about this computer, or ask it to open a screen, start a focus session or move a window. It answers short, in your language.
+![Lagu answering in the island](docs/screenshots/answer.webp)
 
-Lagu has no account and no key of its own. It drives the AI command-line tool already logged in on your computer.
+Lagu is a small blue drop with a palm sprout. Press `Super+A` and Atoll's island stretches into a bar:
+ask about your computer, or ask it to open a screen, start a focus session or move a window. It
+answers short, in your language. It drives the AI command-line tool already logged in on your
+computer, so there is no account, key or bill of its own.
 
-## What it does
+## Features
 
-- **Answers in the island.** Press `Super + A`, type, and the answer appears in the island, with the steps it took shown as it works.
-- **Controls the desktop.** Opens any control-center screen, the launcher, overview, clipboard, emoji picker and dock. Starts and stops focus mode, controls the music, launches apps, switches workspaces and moves windows.
-- **Knows the state of the computer.** Memory, disk, battery, CPU, network and open windows, shown as a card with a ring, bars and buttons that open the right screen.
-- **Moods.** The mascot listens, thinks, works, waits, celebrates, shows errors and sleeps.
-- **Asks first.** It only runs a short list of commands without asking. Anything else needs your approval, and Lagu tells you what it wanted to do and why.
+- **Answers in the island:** steps drop below the bar as it works, then the answer.
+- **Visual answers:** memory, disk, battery, CPU and network come back as a card with a ring, bars and buttons that open the right screen or app.
+- **Controls the desktop:** opens any control-center screen, the launcher, overview, clipboard, emoji picker and dock. Starts and stops focus mode, controls the music, launches apps, switches workspaces and moves windows.
+- **Asks first:** a short list of commands runs on its own. Anything else waits for your OK, with the exact command shown.
+- **Moods:** it listens, thinks, works, waits for you, celebrates, shows errors and sleeps, in the bar and in the island.
+- **Your choice of AI:** Claude Code, Cursor or Codex, picked in Atoll's Assistant screen (`Super+Alt+G`).
+
+## Moods
+
+![Lagu's eight moods](docs/screenshots/moods.webp)
+
+| Mood | When |
+|---|---|
+| Idle | the island at rest |
+| Listening | the microphone is on |
+| Thinking | waiting for the answer |
+| Working | opening, changing, arranging |
+| Waiting | it needs your permission |
+| Done | the answer is in |
+| Error | something failed, or you are not logged in |
+| Sleeping | focus mode or do not disturb |
 
 ## Who answers
 
-Pick one in Settings, Assistant. Lagu shows which are installed and logged in.
+![The Assistant screen](docs/screenshots/settings.webp)
 
-- **Claude Code:** `npm i -g @anthropic-ai/claude-code`, then `claude auth login`.
-- **Cursor Agent:** `curl https://cursor.com/install -fsS | bash`, then `cursor-agent login`.
-- **OpenAI Codex:** `npm i -g @openai/codex`, then `codex login`. Written from its documentation and not yet tested on a real install.
+| Tool | Install | Log in |
+|---|---|---|
+| Claude Code | `npm i -g @anthropic-ai/claude-code` | `claude auth login` |
+| Cursor Agent | `curl https://cursor.com/install -fsS \| bash` | `cursor-agent login` |
+| OpenAI Codex | `npm i -g @openai/codex` | `codex login` |
+
+Codex support follows its documentation and has not been tested on a real install yet.
 
 ## Safety
 
-- Commands are argument lists, never shell strings. Pipes, redirections, `&&` and `;` are refused.
-- Allowed without asking: Atoll's own IPC, `gtk-launch`, read-only system commands (`free`, `df`, `du`, `ps`, `uptime`, `lsblk`, `nproc`, `upower`, a few `nmcli` and `hyprctl` queries) and workspace switching.
-- Never allowed: `sudo`, `su`, `pkexec`, `doas`, `run0`. Lagu gives you the command to run yourself.
-- Never read or edited: `~/.ssh`, `~/.gnupg`, `~/.password-store`, the keyrings and the Claude credentials.
-- Web pages are not fetched unless you approve it, because a page could carry instructions meant for the assistant.
-- Everything the tools print is treated as untrusted. Cards can only open an Atoll screen or an installed app.
+- Commands are argument lists, never shell strings.
+- Allowed without asking: Atoll's own IPC, `gtk-launch`, read-only system commands (`free`, `df`, `du`, `ps`, `uptime`, `lsblk`, `nproc`, `upower`, a few `nmcli` and `hyprctl` queries) and switching workspaces.
+- Never allowed: `sudo`, `su`, `pkexec`, `doas` and `run0`. Lagu gives you the command to run yourself.
+- Never read or changed: `~/.ssh`, `~/.gnupg`, `~/.password-store`, the keyrings and the Claude credentials.
+- Web pages are fetched only with your OK, because a page could carry instructions meant for the assistant.
+- Everything the tools print is treated as untrusted text. A card can only open an Atoll screen or an installed app.
 - "Ask before changing files" is on by default.
-
-## Files
-
-- `assistant.js`: builds each tool's command, parses its JSON output, checks the answer card and holds Lagu's instructions.
-- `Assistant.qml`: the state: who answers, the running turn, the history.
-- `PgAssistant.qml`: the Settings page.
-- `Lagu.qml`: the mascot and its moods.
-- `Ask.qml`, `AskPanel.qml`: the question box and the answer panel in the island.
-
-## Requirements
-
-- Atoll, running on Hyprland with Quickshell.
-- At least one of Claude Code, Cursor Agent or OpenAI Codex, logged in.
-- `wl-clipboard`, to copy the install commands from the Settings page.
 
 ## Install
 
-Lagu ships with Atoll. These files live in `~/.config/quickshell/atoll`. To use them on their own, copy them there and restart the shell with `Super + Shift + R`.
+Lagu ships with Atoll: install [Atoll](https://github.com/brayanspagnol/atoll) and it is there, on `Super+A`.
+This repository holds Lagu's own files to read, reuse or improve:
+
+| File | What it is |
+|---|---|
+| `Lagu.qml` | the mascot and its moods |
+| `Assistant.qml` | the state: who answers, the running turn, the conversation |
+| `assistant.js` | each tool's command, its JSON output, the answer card and Lagu's instructions |
+| `Ask.qml`, `AskPanel.qml` | the bar that grows out of the island and the answers below it |
+| `PgAssistant.qml` | the Assistant screen in the control center |
+
+### Requirements
+
+- Atoll on Hyprland, with Quickshell.
+- At least one of Claude Code, Cursor Agent or OpenAI Codex, logged in.
 
 ## Privacy
 
-Lagu has no telemetry. What you ask, and what the tools read to answer, goes to the provider you picked, under that provider's terms. Nothing goes anywhere else.
+Lagu has no telemetry. What you ask, and what the tool reads to answer, goes to the provider you
+picked, under that provider's terms. Nothing goes anywhere else.
 
 ## Troubleshooting
 
-- Lagu says "Needs login": click Log in on the Assistant page, or run the login command above in a terminal.
-- No answer: check `~/.local/state/atoll/shell.log`.
-- Restart the shell with `Super + Shift + R`.
+- **"You are not logged in":** press Log in in the answer, or run the login command above in a terminal.
+- **No answer:** look in `~/.local/state/atoll/shell.log`.
+- **Restart the shell:** `Super+Shift+R`.
 
 ## License
 
-MIT, like Atoll.
+[MIT](LICENSE)
