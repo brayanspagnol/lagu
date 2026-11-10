@@ -3,6 +3,7 @@
   <h1>Lagu</h1>
   <p><strong>O assistente que mora na ilha do <a href="https://github.com/brayanspagnol/atoll">Atoll</a>, sem chave de API própria.</strong></p>
   <p>
+    <a href="https://github.com/brayanspagnol/lagu/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/brayanspagnol/lagu"></a>
     <a href="LICENSE"><img alt="Licença MIT" src="https://img.shields.io/github/license/brayanspagnol/lagu"></a>
     <img alt="Plataforma: Linux" src="https://img.shields.io/badge/platform-Linux-blue">
     <img alt="Linguagem: QML" src="https://img.shields.io/badge/language-QML-41CD52">
